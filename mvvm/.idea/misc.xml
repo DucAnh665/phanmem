@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/LTdidong/phanmem/mvvm/app/src/main/res/layout/activity_dangky.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTdidong/phanmem/mvvm/app/src/main/res/layout/activity_list_monan.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTdidong/phanmem/mvvm/app/src/main/res/layout/custom_ban.xml" value="0.25416666666666665" />
+        <entry key="..\:/LTdidong/phanmem/mvvm/app/src/main/res/layout/custom_do_an.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
