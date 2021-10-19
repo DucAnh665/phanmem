@@ -1,14 +1,16 @@
-package com.example.mvvm;
+package com.example.mvvm.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class listMonan extends AppCompatActivity {
+import com.example.mvvm.R;
+
+public class login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_monan);
+        setContentView(R.layout.activity_login);
     }
 }
