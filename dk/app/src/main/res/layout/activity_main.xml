@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="Dk"
+            type="com.example.dk.Dk" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="70dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+        </TextView>
+
+        <EditText
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:id="@+id/edDKEmail"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Email"
+            android:text="@={Dk.email}"
+            android:textColor="@color/black"
+            android:textSize="20dp"></EditText>
+        <EditText
+            android:id="@+id/edDKPass"
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Pass"
+            android:text="@={Dk.pass}"
+            android:textColor="@color/black"
+            android:textSize="20dp">
+        </EditText>
+        <EditText
+            android:id="@+id/edDKName"
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Name"
+            android:text="@={Dk.name}"
+            android:textColor="@color/black"
+            android:textSize="20dp">
+        </EditText>
+        <EditText
+            android:id="@+id/edDKPhone"
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Phone"
+            android:inputType="number"
+            android:text="@={Dk.phone}"
+            android:textColor="@color/black"
+            android:textSize="20dp">
+        </EditText>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/mess"
+            android:textSize="20dp"
+            android:text="@{Dk.mess}"
+            android:visibility="visible"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+        <Button
+            android:id="@+id/btRegister"
+            android:layout_width="242dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->Dk.onClickRegister()}"
+            android:backgroundTint="@color/teal_200"
+            android:text="Register"></Button>
+
+    </LinearLayout>
+</layout>
