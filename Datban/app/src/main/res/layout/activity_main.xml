@@ -5,22 +5,62 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background"
+
+    >
+
+    <TextView
+
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="CHÀO MỪNG BẠN"
+        android:textSize="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textStyle="bold"
+        android:textColor="#FF7F24"/>
+    <TextView
+
+        android:layout_marginLeft="60dp"
+        android:text="Đăng nhập để sử dụng"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="	#FF7F24"/>
+
+    <ImageView
+
+        android:layout_width="255dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tom2hii" />
 
     <EditText
+
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/tk"
-        android:hint="Tài khoản"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:hint="USER NAME"
+        android:textColor="@color/white"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         />
+
     <EditText
+
+        android:layout_marginLeft="50dp"
         android:id="@+id/mk"
-        android:hint="Mật khẩu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:hint="PASSWORD"
+        android:textColor="@color/white"
+        android:minHeight="48dp" />
 
     <Button
+
+        android:layout_marginTop="30dp"
         android:id="@+id/dangnhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,14 +70,22 @@
         />
 
     <Button
+
         android:id="@+id/dangki"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/teal_"
+        android:backgroundTint="@color/teal_700"
         android:text="Đăng kí"
         android:layout_gravity="center"
         />
+    <TextView
 
-
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quên mật khẩu ?"
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
 
 </LinearLayout>
