@@ -2,6 +2,7 @@ package com.example.myapplication.DAO;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -19,11 +20,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class KhachhangDAO {
 
+
+    ArrayList<Khachhang> dulieukhach = new ArrayList<>();
 
     public int dangnhap(String taikhoan, String matkhau, String url, Context context)
     {
@@ -46,8 +50,11 @@ public class KhachhangDAO {
                           id = object.getInt("ID");
                           tenkhach = object.getString("Tenkhach");
                           sdt = object.getString("Sdt");
+                          dulieukhach.add(new Khachhang(id,tenkhach,sdt));
                           Toast.makeText(context,id+tenkhach+sdt,Toast.LENGTH_LONG).show();
-                          context.startActivity(new Intent(context, home.class));
+                          Intent intent = new Intent(context, home.class);
+                          intent.putExtra("thongtin",  dulieukhach.get(i));
+                          context.startActivity(intent);
                       }
 
                   } catch (JSONException e) {

@@ -1,9 +1,16 @@
 package com.example.myapplication.DTO;
 
-public class Khachhang {
-    int id;
-    String Tenkhach,Taikhoan,Email,Password;
+import java.io.Serializable;
 
+public class Khachhang implements Serializable {
+    int id;
+    String Tenkhach, sdt;
+
+    public Khachhang(int id, String tenkhach, String sdt) {
+        this.id = id;
+        Tenkhach = tenkhach;
+        this.sdt = sdt;
+    }
 
     public int getId() {
         return id;
@@ -21,27 +28,11 @@ public class Khachhang {
         Tenkhach = tenkhach;
     }
 
-    public String getTaikhoan() {
-        return Taikhoan;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setTaikhoan(String taikhoan) {
-        Taikhoan = taikhoan;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 }
