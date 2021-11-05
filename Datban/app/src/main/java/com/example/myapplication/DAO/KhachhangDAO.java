@@ -1,6 +1,7 @@
 package com.example.myapplication.DAO;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -10,6 +11,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.DTO.Khachhang;
+import com.example.myapplication.MainActivity;
+import com.example.myapplication.home;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,13 +27,70 @@ public class KhachhangDAO {
 
     public int dangnhap(String taikhoan, String matkhau, String url, Context context)
     {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                int id=0;
+                String tenkhach = "";
+                String sdt = " ";
+              if (response !=null)
+              {
+                  try
+                  {
+                      JSONArray jsonArray = new JSONArray(response);
+                      for (int i=0;i<jsonArray.length();i++)
+                      {
+                          JSONObject object = jsonArray.getJSONObject(i);
+                          id = object.getInt("ID");
+                          tenkhach = object.getString("Tenkhach");
+                          sdt = object.getString("Sdt");
+                          Toast.makeText(context,id+tenkhach+sdt,Toast.LENGTH_LONG).show();
+                          context.startActivity(new Intent(context, home.class));
+                      }
+
+                  } catch (JSONException e) {
+                      e.printStackTrace();
+                  }
+              }
+              if (response.equals("thatbai"))
+              {
+                  Toast.makeText(context,"Đăng nhập thất bại",Toast.LENGTH_LONG).show();
+              }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context,error.toString(),Toast.LENGTH_LONG).show();
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> param = new HashMap<>();
+                param.put("User",taikhoan);
+                param.put("Pass",matkhau);
+                return param;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+        return 0;
+    }
+
+
+    public int dangky(String tenkhach,String taikhoan, String matkhau,String sdt, String url, Context context)
+    {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.equals("thanhcong"))
                 {
-                    Toast.makeText(context,"Đăng nhập thành công",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"Đăng kí thành công",Toast.LENGTH_LONG).show();
+                    context.startActivity(new Intent(context, MainActivity.class));
 
                 }
                 else if(response.equals("thatbai"))
@@ -44,8 +109,10 @@ public class KhachhangDAO {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> param = new HashMap<>();
-                param.put("Taikhoan",taikhoan);
-                param.put("gmail",matkhau);
+                param.put("Tenkhach",taikhoan);
+                param.put("User",taikhoan);
+                param.put("Pass",matkhau);
+                param.put("Sdt",sdt);
                 return param;
             }
         };

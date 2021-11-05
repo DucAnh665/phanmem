@@ -4,13 +4,6 @@ public class Khachhang {
     int id;
     String Tenkhach,Taikhoan,Email,Password;
 
-    public Khachhang(int id, String tenkhach, String taikhoan, String email, String password) {
-        this.id = id;
-        Tenkhach = tenkhach;
-        Taikhoan = taikhoan;
-        Email = email;
-        Password = password;
-    }
 
     public int getId() {
         return id;

@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,9 +25,9 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private EditText edttk,edmk;
-    private Button btdangnhap;
+    private Button btdangnhap,btdangki;
     KhachhangDAO khachhangDAO;
-    String url = "https://csdlapp.000webhostapp.com/login.php";
+    String url = "https://dsdiw.000webhostapp.com/login.php";
     String sttk,stmk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +36,18 @@ public class MainActivity extends AppCompatActivity {
         edttk = findViewById(R.id.tk);
         edmk = findViewById(R.id.mk);
         btdangnhap = findViewById(R.id.dangnhap);
+        btdangki = findViewById(R.id.dangki);
         khachhangDAO = new KhachhangDAO();
         btdangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 click(url);
+            }
+        });
+        btdangki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,Register.class));
             }
         });
 
