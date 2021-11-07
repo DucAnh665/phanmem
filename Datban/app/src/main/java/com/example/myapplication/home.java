@@ -1,24 +1,46 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.myapplication.Adapter.Adapterban;
 import com.example.myapplication.DAO.BanDAO;
 import com.example.myapplication.DAO.LoaiBanDTO;
+import com.example.myapplication.DTO.Ban;
 import com.example.myapplication.DTO.Khachhang;
+import com.example.myapplication.DTO.Menu;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
     TextView tenkhach,sdt;
-    ListView lvloaiban,ban;
+    ListView lvloaiban;
+    RecyclerView ban;
     int id = 0;
     String ten = " ";
     String sdtkhach = " ";
     LoaiBanDTO loaiBanDTO;
     BanDAO banDAO;
+    Adapterban daban;
+    ArrayList<Ban> dulieuban = new ArrayList<>();
     String urllb = "https://dsdiw.000webhostapp.com/getLoaiban.php";
     String urlban = "https://dsdiw.000webhostapp.com/getBan.php";
     @Override
@@ -30,7 +52,12 @@ public class home extends AppCompatActivity {
         loaiBanDTO = new LoaiBanDTO();
         banDAO = new BanDAO();
         loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,lvloaiban);
-        banDAO.getData(urlban,home.this,R.layout.custom,ban);
+        daban = new Adapterban(dulieuban,home.this);
+        ban.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        ban.setLayoutManager(layoutManager);
+        banDAO.getdata(urlban,dulieuban,daban,home.this);
+        ban.setAdapter(daban);
 
     }
     public void nhandulieu()
@@ -43,11 +70,12 @@ public class home extends AppCompatActivity {
         sdt.setText(sdtkhach);
 
     }
+
     public  void anhxa()
     {
         tenkhach = findViewById(R.id.tenkhach);
         sdt = findViewById(R.id.sdt);
         lvloaiban = findViewById(R.id.lvloaiban);
-        ban = findViewById(R.id.ban);
+        ban = (RecyclerView)findViewById(R.id.ban);
     }
 }

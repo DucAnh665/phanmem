@@ -51,7 +51,6 @@ public class KhachhangDAO {
                           tenkhach = object.getString("Tenkhach");
                           sdt = object.getString("Sdt");
                           dulieukhach.add(new Khachhang(id,tenkhach,sdt));
-                          Toast.makeText(context,id+tenkhach+sdt,Toast.LENGTH_LONG).show();
                           Intent intent = new Intent(context, home.class);
                           intent.putExtra("thongtin",  dulieukhach.get(i));
                           context.startActivity(intent);
@@ -116,7 +115,7 @@ public class KhachhangDAO {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> param = new HashMap<>();
-                param.put("Tenkhach",taikhoan);
+                param.put("Tenkhach",tenkhach);
                 param.put("User",taikhoan);
                 param.put("Pass",matkhau);
                 param.put("Sdt",sdt);

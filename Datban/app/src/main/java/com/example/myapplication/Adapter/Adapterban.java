@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.DTO.Ban;
@@ -16,61 +17,52 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Adapterban extends BaseAdapter {
-    Context context;
-    int layout;
-    ArrayList<Ban> mangban;
+public class Adapterban extends RecyclerView.Adapter<Adapterban.Banviewhodel> {
+    private  ArrayList<Ban> listban;
+    private  Context context;
 
-    public Adapterban(Context context, int layout, ArrayList<Ban> mangban) {
+    public Adapterban(ArrayList<Ban> listban, Context context)
+    {
+        this.listban = listban;
         this.context = context;
-        this.layout = layout;
-        this.mangban = mangban;
+    }
+
+    @NonNull
+    @Override
+    public Banviewhodel onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View itemview = layoutInflater.inflate(R.layout.custom,parent,false);
+        return new Banviewhodel(itemview);
+
     }
 
     @Override
-    public int getCount() {
-        return mangban.size();
+    public void onBindViewHolder(@NonNull Banviewhodel holder, int position) {
+        Ban list = listban.get(position);
+        holder.txtmota.setText(list.getMota());
+        holder.txtsoban.setText(String.valueOf(list.getSoban()));
+        Picasso.get().load(list.getHinhanh()).placeholder(R.drawable.googleg_standard_color_18).error(R.drawable.common_full_open_on_phone).into(holder.imganh);
+
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public int getItemCount() {
+        return listban.size();
     }
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+    public static class Banviewhodel extends RecyclerView.ViewHolder
+    {
+        TextView txtsoban,txtmota;
+        ImageView imganh;
 
 
-    class Viewhodel {
-        TextView txtmota;
-        TextView txtsoban;
-        ImageView anhban;
-    }
-
-    @Override
-    public View getView(int position, View view, ViewGroup parent) {
-        Viewhodel viewhodel;
-
-        if (view==null)
-        {
-            viewhodel = new Viewhodel();
-            LayoutInflater inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(layout,null);
-
-            viewhodel.txtmota = (TextView) view.findViewById(R.id.textviewmota);
-            viewhodel.txtsoban = (TextView) view.findViewById(R.id.textviewsoban);
-            viewhodel.anhban = (ImageView) view.findViewById(R.id.imageviewban);
-            view.setTag(viewhodel);
+        public Banviewhodel(@NonNull View itemView) {
+            super(itemView);
+            txtsoban = itemView.findViewById(R.id.textviewsoban);
+            txtmota = itemView.findViewById(R.id.textviewmota);
+            imganh = itemView.findViewById(R.id.imageviewban);
         }
-        else {
-            viewhodel = (Viewhodel) view.getTag();
-        }
-        Ban ban = mangban.get(position);
-        Picasso.get().load(ban.getHinhanh()).placeholder(R.drawable.backgroud2).error(R.drawable.common_google_signin_btn_icon_dark).into(viewhodel.anhban);
-        viewhodel.txtmota.setText(ban.getMota());
-        viewhodel.txtsoban.setText(String.valueOf(ban.getSoban()));
-        return view;
     }
+
 }

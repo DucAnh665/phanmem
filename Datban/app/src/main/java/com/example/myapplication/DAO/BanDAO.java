@@ -12,6 +12,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.Adapter.Adapterban;
 import com.example.myapplication.DTO.Ban;
+import com.example.myapplication.home;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,43 +22,41 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class BanDAO {
-    ArrayList<Ban> mangban = new ArrayList<>();
-    public void getData(String url, Context context, int layout, ListView lv){
-        Adapterban adapterban = new Adapterban(context,layout,mangban);
+
+    public void getdata(String url,ArrayList<Ban> dulieuban,Adapterban daban,Context context)
+    {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                mangban.clear();
-                for (int i=0;i<response.length();i++) {
+                dulieuban.clear();
+                for (int i=0;i<response.length();i++)
+                {
                     try {
-                        JSONObject jsonObject = response.getJSONObject(i);
-                        mangban.add(new Ban(
-                          jsonObject.getInt("ID"),
-                                jsonObject.getString("Hinhanh"),
-                                jsonObject.getInt("Soban"),
-                                jsonObject.getInt("IDsanpham"),
-                                jsonObject.getString("Mota")));
+                        JSONObject object = response.getJSONObject(i);
+                        dulieuban.add(new Ban(
+                                object.getInt("ID"),
+                                object.getString("Hinhanh"),
+                                object.getInt("Soban"),
+                                object.getInt("IDloaiban"),
+                                object.getString("Mota")
+                        ));
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                 }
-                adapterban.notifyDataSetChanged();
-                lv.setAdapter(adapterban);
-
+                daban.notifyDataSetChanged();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context,"erro",Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"lỗi",Toast.LENGTH_LONG).show();
 
             }
         });
         requestQueue.add(jsonArrayRequest);
-
-        }
+    }
     }
 

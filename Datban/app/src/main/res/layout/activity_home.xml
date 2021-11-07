@@ -7,16 +7,48 @@
     android:orientation="vertical"
     tools:context=".home">
 
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:ignore="SpeakableTextPresentCheck">
 
-        <ListView
-            android:id="@+id/ban"
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical">
+         <androidx.appcompat.widget.Toolbar
+             app:title="Trang chủ"
+             android:layout_width="match_parent"
+             android:layout_height="?attr/actionBarSize"
+             android:background="@color/teal_700"
+             app:titleTextColor="@color/white"
+             android:id="@+id/toolbarview"
+             />
+         <ViewFlipper
+             android:layout_width="match_parent"
+             android:layout_height="200dp"
+             android:id="@+id/quangcao"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             >
+             <androidx.recyclerview.widget.RecyclerView
+                 android:id="@+id/ban"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent" ></androidx.recyclerview.widget.RecyclerView>
+         </LinearLayout>
+
+     </LinearLayout>
 
 
         <com.google.android.material.navigation.NavigationView
