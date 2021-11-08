@@ -17,11 +17,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.Adapter.Adapterban;
+import com.example.myapplication.Adapter.Adaptermon;
 import com.example.myapplication.DAO.BanDAO;
 import com.example.myapplication.DAO.LoaiBanDTO;
+import com.example.myapplication.DAO.MonanDTO;
 import com.example.myapplication.DTO.Ban;
 import com.example.myapplication.DTO.Khachhang;
 import com.example.myapplication.DTO.Menu;
+import com.example.myapplication.DTO.Monan;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,31 +36,43 @@ public class home extends AppCompatActivity {
 
     TextView tenkhach,sdt;
     ListView lvloaiban;
-    RecyclerView ban;
+    RecyclerView ban,monan;
     int id = 0;
     String ten = " ";
     String sdtkhach = " ";
     LoaiBanDTO loaiBanDTO;
     BanDAO banDAO;
+    MonanDTO monanDTO;
     Adapterban daban;
     ArrayList<Ban> dulieuban = new ArrayList<>();
+    ArrayList<Monan> dulieumon = new ArrayList<>();
+    Adaptermon adaptermon;
     String urllb = "https://dsdiw.000webhostapp.com/getLoaiban.php";
     String urlban = "https://dsdiw.000webhostapp.com/getBan.php";
+    String urlmon = "https://dsdiw.000webhostapp.com/getthucan.php";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         anhxa();
         nhandulieu();
         loaiBanDTO = new LoaiBanDTO();
         banDAO = new BanDAO();
+        monanDTO = new MonanDTO();
         loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,lvloaiban);
         daban = new Adapterban(dulieuban,home.this);
+        adaptermon = new Adaptermon(dulieumon,home.this);
         ban.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         ban.setLayoutManager(layoutManager);
         banDAO.getdata(urlban,dulieuban,daban,home.this);
         ban.setAdapter(daban);
+
+        monan.setHasFixedSize(true);
+        LinearLayoutManager layoutManager1 = new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL,false);
+        monan.setLayoutManager(layoutManager1);
+        monanDTO.getdulieu(urlmon,adaptermon,dulieumon,home.this);
+        monan.setAdapter(adaptermon);
 
     }
     public void nhandulieu()
@@ -77,5 +92,6 @@ public class home extends AppCompatActivity {
         sdt = findViewById(R.id.sdt);
         lvloaiban = findViewById(R.id.lvloaiban);
         ban = (RecyclerView)findViewById(R.id.ban);
+        monan = (RecyclerView) findViewById(R.id.monan);
     }
 }
