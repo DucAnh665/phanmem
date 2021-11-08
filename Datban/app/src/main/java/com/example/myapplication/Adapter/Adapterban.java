@@ -17,52 +17,60 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Adapterban extends RecyclerView.Adapter<Adapterban.Banviewhodel> {
-    private  ArrayList<Ban> listban;
-    private  Context context;
+public class Adapterban extends BaseAdapter {
+    Context context;
+    ArrayList<Ban> listban;
+    int layout;
 
-    public Adapterban(ArrayList<Ban> listban, Context context)
-    {
-        this.listban = listban;
+    public Adapterban(Context context, ArrayList<Ban> listban, int layout) {
         this.context = context;
-    }
-
-    @NonNull
-    @Override
-    public Banviewhodel onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View itemview = layoutInflater.inflate(R.layout.custom,parent,false);
-        return new Banviewhodel(itemview);
-
+        this.listban = listban;
+        this.layout = layout;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Banviewhodel holder, int position) {
-        Ban list = listban.get(position);
-        holder.txtmota.setText(list.getMota());
-        holder.txtsoban.setText(String.valueOf(list.getSoban()));
-        Picasso.get().load(list.getHinhanh()).placeholder(R.drawable.googleg_standard_color_18).error(R.drawable.common_full_open_on_phone).into(holder.imganh);
-
-    }
-
-    @Override
-    public int getItemCount() {
+    public int getCount() {
         return listban.size();
     }
 
-    public static class Banviewhodel extends RecyclerView.ViewHolder
-    {
-        TextView txtsoban,txtmota;
-        ImageView imganh;
-
-
-        public Banviewhodel(@NonNull View itemView) {
-            super(itemView);
-            txtsoban = itemView.findViewById(R.id.textviewsoban);
-            txtmota = itemView.findViewById(R.id.textviewmota);
-            imganh = itemView.findViewById(R.id.imageviewban);
-        }
+    @Override
+    public Object getItem(int position) {
+        return null;
     }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+    public class Viewhodel
+    {
+        ImageView img;
+        TextView mota,soban;
+    }
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        Viewhodel viewhodel;
+        if (convertView == null)
+        {
+            viewhodel = new Viewhodel();
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(layout,null);
+            viewhodel.img = (ImageView)convertView.findViewById(R.id.imageviewban);
+            viewhodel.mota = (TextView) convertView.findViewById(R.id.textviewmota);
+            viewhodel.soban = (TextView) convertView.findViewById(R.id.textviewsoban);
+            convertView.setTag(viewhodel);
+
+        }
+        else
+        {
+            viewhodel = (Viewhodel) convertView.getTag();
+        }
+        Ban list = listban.get(position);
+        Picasso.get().load(list.getHinhanh()).placeholder(R.drawable.restaurant).into(viewhodel.img);
+        viewhodel.mota.setText(list.getMota());
+        viewhodel.soban.setText(String.valueOf(list.getSoban()));
+        return convertView;
+    }
+
 
 }

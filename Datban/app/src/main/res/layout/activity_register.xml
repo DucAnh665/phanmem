@@ -22,8 +22,9 @@
         android:layout_height="370dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
+        android:background="@drawable/bgdn"
         android:orientation="vertical"
+
 
         >
 

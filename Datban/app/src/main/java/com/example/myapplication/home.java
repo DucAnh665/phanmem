@@ -5,11 +5,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,7 +33,9 @@ import com.example.myapplication.DAO.MonanDTO;
 import com.example.myapplication.DTO.Ban;
 import com.example.myapplication.DTO.Khachhang;
 import com.example.myapplication.DTO.Menu;
+
 import com.example.myapplication.DTO.Monan;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,9 +45,13 @@ import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
+    ViewFlipper quangcao;
+    ImageButton imgpre,imgnext;
+    Animation in,out;
     TextView tenkhach,sdt;
     ListView lvloaiban;
-    RecyclerView ban,monan;
+    RecyclerView monan;
+    ListView ban;
     int id = 0;
     String ten = " ";
     String sdtkhach = " ";
@@ -46,6 +61,7 @@ public class home extends AppCompatActivity {
     Adapterban daban;
     ArrayList<Ban> dulieuban = new ArrayList<>();
     ArrayList<Monan> dulieumon = new ArrayList<>();
+
     Adaptermon adaptermon;
     String urllb = "https://dsdiw.000webhostapp.com/getLoaiban.php";
     String urlban = "https://dsdiw.000webhostapp.com/getBan.php";
@@ -56,25 +72,58 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         anhxa();
         nhandulieu();
+        Quangcao();
         loaiBanDTO = new LoaiBanDTO();
         banDAO = new BanDAO();
         monanDTO = new MonanDTO();
         loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,lvloaiban);
-        daban = new Adapterban(dulieuban,home.this);
-        adaptermon = new Adaptermon(dulieumon,home.this);
-        ban.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        ban.setLayoutManager(layoutManager);
+
+
+        daban = new Adapterban(home.this,dulieuban,R.layout.custom);
         banDAO.getdata(urlban,dulieuban,daban,home.this);
         ban.setAdapter(daban);
 
+        adaptermon = new Adaptermon(dulieumon,home.this);
         monan.setHasFixedSize(true);
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL,false);
         monan.setLayoutManager(layoutManager1);
-        monanDTO.getdulieu(urlmon,adaptermon,dulieumon,home.this);
         monan.setAdapter(adaptermon);
+        monanDTO.getdulieu(urlmon,adaptermon,dulieumon,home.this);
+
+
+        imgpre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(quangcao.isAutoStart()){
+                    quangcao.stopFlipping();
+                    quangcao.showPrevious();
+                    quangcao.startFlipping();
+                    quangcao.setAutoStart(true);
+                }
+            }
+        });
+        imgnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(quangcao.isAutoStart()){
+                    quangcao.stopFlipping();
+                    quangcao.showNext();
+                    quangcao.startFlipping();
+                    quangcao.setAutoStart(true);
+                }
+            }
+        });
+    }
+    private void Quangcao() {
+        in = AnimationUtils.loadAnimation(this,R.anim.fade_in);
+        out = AnimationUtils.loadAnimation(this,R.anim.fade_out);
+        quangcao.setInAnimation(in);
+        quangcao.setInAnimation(out);
+        quangcao.setFlipInterval(5000);
+        quangcao.setAutoStart(true);
 
     }
+
     public void nhandulieu()
     {
         Khachhang khachhang = (Khachhang)getIntent().getSerializableExtra("thongtin");
@@ -88,10 +137,13 @@ public class home extends AppCompatActivity {
 
     public  void anhxa()
     {
+        quangcao = findViewById(R.id.quangcao);
+        imgnext = findViewById(R.id.imgnext);
+        imgpre = findViewById(R.id.imgpre);
         tenkhach = findViewById(R.id.tenkhach);
         sdt = findViewById(R.id.sdt);
         lvloaiban = findViewById(R.id.lvloaiban);
-        ban = (RecyclerView)findViewById(R.id.ban);
+        ban = (ListView) findViewById(R.id.ban);
         monan = (RecyclerView) findViewById(R.id.monan);
     }
 }
