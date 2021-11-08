@@ -26,12 +26,65 @@
              app:titleTextColor="@color/white"
              android:id="@+id/toolbarview"
              />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
          <ViewFlipper
              android:layout_width="match_parent"
              android:layout_height="200dp"
-             android:id="@+id/quangcao"/>
+             android:id="@+id/quangcao">
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:scaleType="fitXY"
+                 android:src="@drawable/backgroud"
+                 />
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:scaleType="fitXY"
+                 android:src="@drawable/tomhumdat"
+                 />
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:scaleType="fitXY"
+                 android:src="@drawable/tomhumdat2"
+                 />
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:scaleType="fitXY"
+                 android:src="@drawable/tomhumdat3"
+                 />
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:scaleType="fitXY"
+                 android:src="@drawable/tomhumdat5"
+                 />
 
-        <LinearLayout
+         </ViewFlipper>
+            <ImageButton
+
+                android:scaleType="fitXY"
+                android:src="@drawable/pre"
+                android:id="@+id/imgpre"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="70dp"/>
+
+         <ImageButton
+             android:scaleType="fitXY"
+             android:id="@+id/imgnext"
+             android:layout_width="50dp"
+             android:layout_height="70dp"
+             android:src="@drawable/preview"
+             android:layout_marginTop="70dp"
+             android:layout_marginLeft="360dp"
+             />
+        </RelativeLayout>
+         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

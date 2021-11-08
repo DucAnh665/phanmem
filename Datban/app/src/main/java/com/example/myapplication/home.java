@@ -5,11 +5,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +31,7 @@ import com.example.myapplication.DAO.LoaiBanDTO;
 import com.example.myapplication.DTO.Ban;
 import com.example.myapplication.DTO.Khachhang;
 import com.example.myapplication.DTO.Menu;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +41,9 @@ import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
+    ViewFlipper quangcao;
+    ImageButton imgpre,imgnext;
+    Animation in,out;
     TextView tenkhach,sdt;
     ListView lvloaiban;
     RecyclerView ban;
@@ -49,6 +62,7 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         anhxa();
         nhandulieu();
+        Quangcao();
         loaiBanDTO = new LoaiBanDTO();
         banDAO = new BanDAO();
         loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,lvloaiban);
@@ -59,7 +73,41 @@ public class home extends AppCompatActivity {
         banDAO.getdata(urlban,dulieuban,daban,home.this);
         ban.setAdapter(daban);
 
+
+        imgpre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(quangcao.isAutoStart()){
+                    quangcao.stopFlipping();
+                    quangcao.showPrevious();
+                    quangcao.startFlipping();
+                    quangcao.setAutoStart(true);
+                }
+            }
+        });
+        imgnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(quangcao.isAutoStart()){
+                    quangcao.stopFlipping();
+                    quangcao.showNext();
+                    quangcao.startFlipping();
+                    quangcao.setAutoStart(true);
+                }
+            }
+        });
+
     }
+    private void Quangcao() {
+        in = AnimationUtils.loadAnimation(this,R.anim.fade_in);
+        out = AnimationUtils.loadAnimation(this,R.anim.fade_out);
+        quangcao.setInAnimation(in);
+        quangcao.setInAnimation(out);
+        quangcao.setFlipInterval(5000);
+        quangcao.setAutoStart(true);
+
+    }
+
     public void nhandulieu()
     {
         Khachhang khachhang = (Khachhang)getIntent().getSerializableExtra("thongtin");
@@ -73,6 +121,9 @@ public class home extends AppCompatActivity {
 
     public  void anhxa()
     {
+        quangcao = findViewById(R.id.quangcao);
+        imgnext = findViewById(R.id.imgnext);
+        imgpre = findViewById(R.id.imgpre);
         tenkhach = findViewById(R.id.tenkhach);
         sdt = findViewById(R.id.sdt);
         lvloaiban = findViewById(R.id.lvloaiban);
