@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chitietban">
+    tools:context=".Chitietban"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#f9ba48"
+        android:id="@+id/toolbarview"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        >
+        <ImageButton
+            android:background="@drawable/bg_rounded"
+            android:scaleType="fitXY"
+            android:src="@drawable/back"
+            android:id="@+id/quaylaichitietbanan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@+id/imagechitietban"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:layout_below="@+id/toolbarview"
+        android:id="@+id/imagechitietban"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/banan" />
+
+
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="loai ban"
+        android:id="@+id/chitietloaiban"
+        android:layout_below="@+id/imagechitietban"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <TextView
+
+        android:layout_marginLeft="30dp"
+        android:text="so ban"
+        android:id="@+id/chitietsoban"
+        android:layout_below="@+id/chitietloaiban"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chitietsoban"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="50dp">
+    <ImageButton
+        android:src="@drawable/ghe1"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/none"
+        android:id="@+id/buttondatban"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="Đặt Bàn"
+/>
+    <ImageButton
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/none"
+        android:id="@+id/buttonboqua"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/datmon"
+        android:scaleType="fitXY"
+        android:layout_toRightOf="@+id/buttondatban"/>
+    </RelativeLayout>
+
+</RelativeLayout>

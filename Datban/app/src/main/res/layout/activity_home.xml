@@ -22,8 +22,8 @@
              app:title="Trang chủ"
              android:layout_width="match_parent"
              android:layout_height="?attr/actionBarSize"
-             android:background="@color/teal_700"
-             app:titleTextColor="@color/white"
+             android:background="#f9ba48"
+             app:titleTextColor="@color/black"
              android:id="@+id/toolbarview"
              />
         <RelativeLayout
@@ -66,20 +66,21 @@
 
          </ViewFlipper>
             <ImageButton
-
+                android:background="@drawable/none"
                 android:scaleType="fitXY"
-                android:src="@drawable/pre"
+                android:src="@drawable/prexam"
                 android:id="@+id/imgpre"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="70dp"/>
 
          <ImageButton
+             android:background="@drawable/none"
              android:scaleType="fitXY"
              android:id="@+id/imgnext"
              android:layout_width="50dp"
              android:layout_height="70dp"
-             android:src="@drawable/preview"
+             android:src="@drawable/nextxam"
              android:layout_marginTop="70dp"
              android:layout_marginLeft="360dp"
              />
