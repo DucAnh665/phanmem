@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_chitietmonan">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#f9ba48"
+            android:id="@+id/toolbarview"
+
+            >
+            <ImageButton
+                android:background="@drawable/bg_rounded"
+                android:scaleType="fitXY"
+                android:src="@drawable/back"
+                android:id="@+id/quaylaichitietbanan"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toLeftOf="@+id/imagechitietban"/>
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ImageView
+            android:layout_below="@+id/toolbarview"
+            android:id="@+id/imagechitietban"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/backgroud2" />
+
+
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:text="Tên món: "
+            android:id="@+id/chitietmonan"
+            android:layout_below="@+id/imagechitietban"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <TextView
+
+            android:layout_marginLeft="30dp"
+            android:text="Giá tiền:"
+            android:id="@+id/giatien"
+            android:layout_below="@+id/chitietmonan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/suatxu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/giatien"
+            android:layout_marginLeft="30dp"
+            android:text="Suất xứ: " />
+
+            <TextView
+            android:layout_marginLeft="30dp"
+            android:text="Số lượng:"
+
+            android:id="@+id/soluong"
+            android:layout_below="@+id/suatxu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+            <ImageButton
+                android:layout_below="@+id/soluong"
+                android:background="@drawable/none"
+                android:src="@drawable/datmon"
+                android:layout_marginLeft="150dp"
+                android:scaleType="fitXY"
+                android:id="@+id/buttondatmon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                />
+
+
+
+
+</RelativeLayout>

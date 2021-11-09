@@ -74,7 +74,8 @@
             android:layout_marginTop="50dp"
             android:shadowRadius="80"
             android:text="Đăng ký"
-            android:backgroundTint="#fe4d4f" />
+            android:backgroundTint="#fe4d4f"/>
+
     </LinearLayout>
 
 
