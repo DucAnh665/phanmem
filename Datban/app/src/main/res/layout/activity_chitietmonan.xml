@@ -1,88 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity_chitietmonan">
 
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#f9ba48"
-            android:id="@+id/toolbarview"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarview"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#f9ba48"
 
-            >
-            <ImageButton
-                android:background="@drawable/bg_rounded"
-                android:scaleType="fitXY"
-                android:src="@drawable/back"
-                android:id="@+id/quaylaichitietbanan"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_toLeftOf="@+id/imagechitietban"/>
-        </androidx.appcompat.widget.Toolbar>
+        >
 
-
-        <ImageView
-            android:layout_below="@+id/toolbarview"
-            android:id="@+id/imagechitietban"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+        <ImageButton
+            android:id="@+id/quaylaichitietbanan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@+id/imagechitietban"
+            android:background="@drawable/bg_rounded"
             android:scaleType="fitXY"
-            android:src="@drawable/backgroud2" />
+            android:src="@drawable/back" />
+    </androidx.appcompat.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/imagechitietmon"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/toolbarview"
+        android:scaleType="fitXY"
+        android:src="@drawable/backgroud2" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
 
         <TextView
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
-            android:text="Tên món: "
-            android:id="@+id/chitietmonan"
+
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@+id/imagechitietban"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-
-        <TextView
-
             android:layout_marginLeft="30dp"
-            android:text="Giá tiền:"
-            android:id="@+id/giatien"
-            android:layout_below="@+id/chitietmonan"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-
+            android:layout_marginTop="30dp"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:text="Tên món: " />
         <TextView
-            android:id="@+id/suatxu"
+            android:id="@+id/tenmon1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_below="@+id/imagechitietban"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:text="Tên món: " />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@+id/chitietmonan"
+            android:layout_marginLeft="30dp"
+            android:text="Giá tiền:" />
+        <TextView
+
+            android:id="@+id/giatien"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/chitietmonan"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/red"
+            android:textSize="24dp"
+            android:text="Giá tiền:" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="24dp"
+            android:textColor="@color/black"
             android:layout_below="@+id/giatien"
             android:layout_marginLeft="30dp"
-            android:text="Suất xứ: " />
+            android:text="Chất lượng:" />
 
-            <TextView
-            android:layout_marginLeft="30dp"
-            android:text="Số lượng:"
-
-            android:id="@+id/soluong"
-            android:layout_below="@+id/suatxu"
+        <TextView
+            android:id="@+id/chatluong"
             android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-
-            <ImageButton
-                android:layout_below="@+id/soluong"
-                android:background="@drawable/none"
-                android:src="@drawable/datmon"
-                android:layout_marginLeft="150dp"
-                android:scaleType="fitXY"
-                android:id="@+id/buttondatmon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-
-                />
+            android:layout_height="50dp"
+            android:textColor="@color/cam"
+            android:textSize="24dp"
+            android:layout_below="@+id/giatien"
+            android:layout_marginLeft="10dp"
+            android:text="Chất lượng:" />
 
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/soluong"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/suatxu"
+            android:layout_marginLeft="30dp"
+            android:text="Số lượng:" />
+
+        <Spinner
+            android:id="@+id/spiner"
+            android:layout_width="102dp"
+            android:layout_height="30dp"
+          android:layout_marginLeft="-250dp"
+            ></Spinner>
 
 
-</RelativeLayout>
+    </LinearLayout>
+
+
+
+    <ImageButton
+        android:id="@+id/buttondatmon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="170dp"
+        android:background="@drawable/none"
+        android:scaleType="fitXY"
+        android:layout_marginTop="-90dp"
+        android:src="@drawable/datmon"
+
+        />
+
+
+
+
+</LinearLayout>

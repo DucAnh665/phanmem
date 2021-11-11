@@ -1,6 +1,8 @@
 package com.example.myapplication.DTO;
 
-public class Monan {
+import java.io.Serializable;
+
+public class Monan implements Serializable {
     int ID;
     String hinhanh;
     String tenmon;

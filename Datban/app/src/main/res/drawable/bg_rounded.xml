@@ -4,12 +4,10 @@
         android:width="5dp"
         android:color="#f9ba48" />
 
-
-
     <corners
-        android:radius="5dp"
-        android:topRightRadius="100dp"
-        android:topLeftRadius="100dp"
+        android:radius="100dp"
+        android:topRightRadius="120dp"
+        android:topLeftRadius="120dp"
         android:bottomRightRadius="100dp"
         android:bottomLeftRadius="100dp"
         />

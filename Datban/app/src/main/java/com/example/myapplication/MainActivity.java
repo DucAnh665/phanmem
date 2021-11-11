@@ -19,12 +19,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.DAO.KhachhangDAO;
+import com.example.myapplication.DTO.THUCDON;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    public static ArrayList<THUCDON> dulieuthucdon;
     private EditText edttk,edmk;
     private Button btdangnhap,btdangki;
     KhachhangDAO khachhangDAO;
@@ -59,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
             sttk = edttk.getText().toString();
             stmk = edmk.getText().toString();
             khachhangDAO.dangnhap(sttk,stmk,url,MainActivity.this);
+
+        if (dulieuthucdon !=null)
+        {
+
+        }
+        else
+        {
+            dulieuthucdon = new ArrayList<>();
+        }
     }
 
 }

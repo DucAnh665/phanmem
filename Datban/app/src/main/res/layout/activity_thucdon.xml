@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Thucdon">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarGiohang"
+        app:title="Thực đơn"
+        app:titleTextColor="@color/white"
+        android:background="#f9ba48"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_weight="7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/textthucdon"
+                android:textSize="30dp"
+                android:text="Thực đơn đang trống"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ListView
+                android:id="@+id/lvthucdon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                tools:ignore="Suspicious0dp"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tongtien"
+                    android:textColor="#f20"
+                    android:text="Tổng tiền:"
+                    android:textSize="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="right|center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                tools:ignore="Suspicious0dp">
+                <TextView
+                    android:id="@+id/giatri"
+                    android:textColor="#f20"
+                    android:text="Giá trị"
+                    android:textSize="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="Đặt Món"
+        android:backgroundTint="#f9ba48"
+        android:layout_gravity="center"
+        android:id="@+id/btndatmon"
+        android:layout_width="359dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"></Button>
+
+    <Button
+        android:id="@+id/btnTrangchu"
+        android:layout_width="359dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:backgroundTint="#f9ba48"
+        android:text="Trang chủ"
+        android:textColor="@color/black"
+        android:textSize="20dp"></Button>
+
+</LinearLayout>

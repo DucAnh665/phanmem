@@ -1,6 +1,8 @@
 package com.example.myapplication.DTO;
 
-public class Ban {
+import java.io.Serializable;
+
+public class Ban implements Serializable {
     int id;
     String hinhanh;
     int soban;

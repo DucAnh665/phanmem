@@ -5,14 +5,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -35,6 +40,7 @@ import com.example.myapplication.DTO.Khachhang;
 import com.example.myapplication.DTO.Menu;
 
 import com.example.myapplication.DTO.Monan;
+import com.example.myapplication.DTO.THUCDON;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -45,6 +51,8 @@ import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
+
+
     ViewFlipper quangcao;
     ImageButton imgpre,imgnext;
     Animation in,out;
@@ -52,16 +60,15 @@ public class home extends AppCompatActivity {
     ListView lvloaiban;
     RecyclerView monan;
     ListView ban;
-    int id = 0;
-    String ten = " ";
+    int id = 0 ;
+   public static String ten = " ";
     String sdtkhach = " ";
     LoaiBanDTO loaiBanDTO;
     BanDAO banDAO;
     MonanDTO monanDTO;
     Adapterban daban;
     ArrayList<Ban> dulieuban = new ArrayList<>();
-    ArrayList<Monan> dulieumon = new ArrayList<>();
-
+     ArrayList<Monan> dulieumon = new ArrayList<>();
     Adaptermon adaptermon;
     String urllb = "https://dsdiw.000webhostapp.com/getLoaiban.php";
     String urlban = "https://dsdiw.000webhostapp.com/getBan.php";
@@ -71,24 +78,22 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         anhxa();
-        nhandulieu();
         Quangcao();
         loaiBanDTO = new LoaiBanDTO();
         banDAO = new BanDAO();
         monanDTO = new MonanDTO();
         loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,lvloaiban);
 
-
         daban = new Adapterban(home.this,dulieuban,R.layout.custom);
         banDAO.getdata(urlban,dulieuban,daban,home.this);
         ban.setAdapter(daban);
-
         adaptermon = new Adaptermon(dulieumon,home.this);
         monan.setHasFixedSize(true);
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL,false);
         monan.setLayoutManager(layoutManager1);
         monan.setAdapter(adaptermon);
         monanDTO.getdulieu(urlmon,adaptermon,dulieumon,home.this);
+        nhandulieu();
 
 
         imgpre.setOnClickListener(new View.OnClickListener() {
@@ -145,5 +150,13 @@ public class home extends AppCompatActivity {
         lvloaiban = findViewById(R.id.lvloaiban);
         ban = (ListView) findViewById(R.id.ban);
         monan = (RecyclerView) findViewById(R.id.monan);
+        ban.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                banDAO.loadmore(dulieuban,position,home.this);
+            }
+        });
+
     }
+
 }

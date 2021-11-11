@@ -1,6 +1,9 @@
 package com.example.myapplication.DAO;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.view.Window;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -11,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.Adapter.Adapterban;
+import com.example.myapplication.Chitietban;
 import com.example.myapplication.DTO.Ban;
 import com.example.myapplication.home;
 
@@ -57,6 +61,12 @@ public class BanDAO {
             }
         });
         requestQueue.add(jsonArrayRequest);
+    }
+    public void loadmore(ArrayList<Ban> dulieuban,int i,Context context)
+    {
+        Intent intent = new Intent(context, Chitietban.class);
+        intent.putExtra("thongtin",dulieuban.get(i));
+        context.startActivity(intent);
     }
     }
 

@@ -54,7 +54,6 @@ public class LoaiBanDTO {
             }
         });
         requestQueue.add(jsonArrayRequest);
-
     }
 
 

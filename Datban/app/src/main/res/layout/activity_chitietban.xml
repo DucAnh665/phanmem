@@ -6,76 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".Chitietban"
     android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarview"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#f9ba48"
-        android:id="@+id/toolbarview"
 
         >
+
         <ImageButton
-            android:background="@drawable/bg_rounded"
-            android:scaleType="fitXY"
-            android:src="@drawable/back"
             android:id="@+id/quaylaichitietbanan"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_toLeftOf="@+id/imagechitietban"/>
+            android:layout_toLeftOf="@+id/imagechitietban"
+            android:background="@drawable/bg_rounded"
+            android:scaleType="fitXY"
+            android:src="@drawable/back" />
     </androidx.appcompat.widget.Toolbar>
 
 
     <ImageView
-        android:layout_below="@+id/toolbarview"
         android:id="@+id/imagechitietban"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_below="@+id/toolbarview"
         android:scaleType="fitXY"
         android:src="@drawable/banan" />
 
 
-
     <TextView
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:text="loai ban"
+        android:gravity="center"
         android:id="@+id/chitietloaiban"
-        android:layout_below="@+id/imagechitietban"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp"
+        android:layout_below="@+id/imagechitietban"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:text="loai ban"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <TextView
-
+        android:gravity="center"
+        android:id="@+id/chitietsoban"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/chitietloaiban"
         android:layout_marginLeft="30dp"
         android:text="so ban"
-        android:id="@+id/chitietsoban"
-        android:layout_below="@+id/chitietloaiban"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:textSize="20dp" />
+
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/chitietsoban"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="50dp">
-    <ImageButton
-        android:src="@drawable/ghe1"
-        android:scaleType="fitXY"
-        android:layout_marginLeft="40dp"
-        android:background="@drawable/none"
-        android:id="@+id/buttondatban"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:text="Đặt Bàn"
-/>
-    <ImageButton
-        android:layout_marginLeft="100dp"
-        android:background="@drawable/none"
-        android:id="@+id/buttonboqua"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/datmon"
-        android:scaleType="fitXY"
-        android:layout_toRightOf="@+id/buttondatban"/>
+        android:layout_marginLeft="75dp"
+
+        android:layout_marginTop="100dp">
+
+        <ImageButton
+            android:id="@+id/buttondatban"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:background="@drawable/none"
+            android:scaleType="fitXY"
+            android:src="@drawable/ghe1"
+            android:text="Đặt Bàn" />
+
+        <ImageButton
+            android:id="@+id/buttondatmon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="200dp"
+            android:background="@drawable/none"
+            android:scaleType="fitXY"
+            android:src="@drawable/datmon" />
     </RelativeLayout>
 
 </RelativeLayout>

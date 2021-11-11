@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".Thucdon"
+            android:exported="false" />
+        <activity
+            android:name=".Listthucpham"
+            android:exported="false" />
+        <activity
             android:name=".activity_chitietmonan"
             android:exported="false" />
         <activity
