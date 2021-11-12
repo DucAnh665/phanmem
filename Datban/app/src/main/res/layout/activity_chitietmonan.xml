@@ -29,7 +29,7 @@
     <ImageView
         android:id="@+id/imagechitietmon"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:layout_below="@+id/toolbarview"
         android:scaleType="fitXY"
         android:src="@drawable/backgroud2" />
@@ -81,8 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@+id/chitietmonan"
-            android:layout_marginLeft="50dp"
-            android:textColor="@color/red"
+            android:layout_marginLeft="40dp"
+            android:textColor="@color/black"
             android:textSize="24dp"
             android:text="Giá tiền:" />
 
@@ -107,10 +107,10 @@
             android:id="@+id/chatluong"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textColor="@color/cam"
+            android:textColor="@color/black"
             android:textSize="24dp"
             android:layout_below="@+id/giatien"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:text="Chất lượng:" />
 
 
@@ -134,7 +134,7 @@
         <Spinner
             android:id="@+id/spiner"
             android:layout_width="102dp"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
           android:layout_marginLeft="-250dp"
             ></Spinner>
 

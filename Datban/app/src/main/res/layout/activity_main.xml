@@ -59,17 +59,17 @@
         android:id="@+id/dangnhap"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#fe4d4f"
+        android:background="@drawable/button"
         android:text="Đăng nhập"
         android:layout_gravity="center"
         />
 
     <Button
-
+        android:layout_marginTop="5dp"
         android:id="@+id/dangki"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#fe4d4f"
+        android:background="@drawable/button"
         android:text="Đăng kí"
         android:layout_gravity="center"
         />
