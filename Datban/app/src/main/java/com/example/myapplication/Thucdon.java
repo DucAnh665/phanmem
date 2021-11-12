@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -67,6 +68,13 @@ public class Thucdon extends AppCompatActivity {
                     public void onClick(View v) {
                         String time = thoigian.getText().toString().trim();
                         thucdonDAO.themhoadon(url,Thucdon.this,time);
+                        dialog.cancel();
+                    }
+                });
+                ImageButton xoa = (ImageButton) dialog.findViewById(R.id.xoa);
+                xoa.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
                         dialog.cancel();
                     }
                 });

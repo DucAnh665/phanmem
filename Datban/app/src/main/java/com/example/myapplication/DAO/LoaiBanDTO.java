@@ -16,6 +16,10 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.Adapter.AdapterLB;
 import com.example.myapplication.DTO.Menu;
+import com.example.myapplication.ban2;
+import com.example.myapplication.ban4;
+import com.example.myapplication.ban6;
+import com.example.myapplication.gioithieu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,6 +70,18 @@ public class LoaiBanDTO {
         {
             case 0:
                 context.startActivity(new Intent(context, gioithieu.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            case 1:
+                context.startActivity(new Intent(context, ban4.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            case 2:
+                context.startActivity(new Intent(context, ban2.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            case 3:
+                context.startActivity(new Intent(context, ban6.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
 

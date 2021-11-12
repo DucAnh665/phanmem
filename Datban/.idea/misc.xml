@@ -13,6 +13,9 @@
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1953125" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/drawable/none.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/font/fontt.xml" value="0.23148148148148148" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_ban2.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_ban4.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_ban6.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_chitietban.xml" value="0.264" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_chitietmonan.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_home.xml" value="0.2" />
@@ -26,9 +29,11 @@
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/ctmonan.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/ctthucdon.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/ctthucpham.xml" value="0.23641304347826086" />
-        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/custom.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/custom.xml" value="0.2" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/dong_banner.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/loaiban2.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/loaiban6.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/drawable/bg_rounded.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_chitietban.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_chitietmonan.xml" value="0.264" />
