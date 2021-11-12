@@ -1,8 +1,12 @@
 package com.example.myapplication.DAO;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,6 +16,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.Adapter.AdapterLB;
 import com.example.myapplication.DTO.Menu;
+import com.example.myapplication.gioithieu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +48,7 @@ public class LoaiBanDTO {
                         e.printStackTrace();
                     }
                 }
+                dulieumenu.add(0,new Menu(0,"Giới Thiệu","https://cdn-icons.flaticon.com/png/512/1865/premiu…=1636721189~hmac=743050aabbfa44397664fe8277031532"));
                 dalb.notifyDataSetChanged();
                 lv.setAdapter(dalb);
             }
@@ -54,6 +60,17 @@ public class LoaiBanDTO {
             }
         });
         requestQueue.add(jsonArrayRequest);
+    }
+    public void phanloai(Context context, int i, DrawerLayout drawerLayout)
+    {
+        switch (i)
+        {
+            case 0:
+                context.startActivity(new Intent(context, gioithieu.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+
+        }
     }
 
 

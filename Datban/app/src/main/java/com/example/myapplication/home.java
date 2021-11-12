@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -59,6 +60,7 @@ public class home extends AppCompatActivity {
     TextView tenkhach,sdt;
     ListView lvloaiban;
     RecyclerView monan;
+    DrawerLayout drawerLayout;
     ListView ban;
     int id = 0 ;
    public static String ten = " ";
@@ -83,7 +85,6 @@ public class home extends AppCompatActivity {
         banDAO = new BanDAO();
         monanDTO = new MonanDTO();
         loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,lvloaiban);
-
         daban = new Adapterban(home.this,dulieuban,R.layout.custom);
         banDAO.getdata(urlban,dulieuban,daban,home.this);
         ban.setAdapter(daban);
@@ -154,6 +155,13 @@ public class home extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 banDAO.loadmore(dulieuban,position,home.this);
+            }
+        });
+        drawerLayout = findViewById(R.id.drea);
+        lvloaiban.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                loaiBanDTO.phanloai(home.this,position,drawerLayout);
             }
         });
 
