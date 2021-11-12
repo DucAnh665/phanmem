@@ -29,13 +29,11 @@
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/custom.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/dong_banner.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
-        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/loaiban2.xml" value="0.2269021739130435" />
-        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/loaiban4.xml" value="0.2269021739130435" />
-        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/loaiban6.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/drawable/bg_rounded.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_chitietban.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_chitietmonan.xml" value="0.264" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_gioithieu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_gioithieu2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_home.xml" value="0.128" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_listthucpham.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
@@ -50,6 +48,9 @@
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/custom.xml" value="0.175" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/dong_banner.xml" value="0.175" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/fragment_banner.xml" value="0.175" />
+        <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/loaiban2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/loaiban4.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/loaiban6.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/layout/test.xml" value="0.25416666666666665" />
       </map>
     </option>
