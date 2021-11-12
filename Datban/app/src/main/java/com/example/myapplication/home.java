@@ -73,6 +73,7 @@ public class home extends AppCompatActivity {
     String urllb = "https://dsdiw.000webhostapp.com/getLoaiban.php";
     String urlban = "https://dsdiw.000webhostapp.com/getBan.php";
     String urlmon = "https://dsdiw.000webhostapp.com/getthucan.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
