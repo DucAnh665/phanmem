@@ -6,6 +6,12 @@
     android:layout_gravity="center"
     android:background="@drawable/dat2">
 
+    <ImageButton
+        android:id="@+id/xoa"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="270dp"
+        android:src="@android:drawable/ic_delete" />
 
     <TextView
         android:id="@+id/idkhachhd"
