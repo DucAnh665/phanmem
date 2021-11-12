@@ -36,12 +36,23 @@
 
 
     <TextView
-        android:gravity="center"
+        android:gravity="left"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imagechitietban"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:text="Loại bàn: "
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+    <TextView
+
         android:id="@+id/chitietloaiban"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/imagechitietban"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="180dp"
         android:layout_marginTop="30dp"
         android:text="loai ban"
         android:textColor="@color/black"
@@ -49,12 +60,22 @@
         android:textStyle="bold" />
 
     <TextView
-        android:gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/chitietloaiban"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:gravity="left"
+        android:text="Số bàn: "
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_marginTop="5dp"
         android:id="@+id/chitietsoban"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/chitietloaiban"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="120dp"
         android:text="so ban"
         android:textSize="20dp" />
 
@@ -65,7 +86,7 @@
         android:layout_below="@+id/chitietsoban"
         android:layout_marginLeft="75dp"
 
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="80dp">
 
         <ImageButton
             android:id="@+id/buttondatban"
