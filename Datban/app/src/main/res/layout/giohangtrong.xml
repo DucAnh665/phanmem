@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        app:title="Đơn hàng"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#f9ba48"
+        app:titleTextColor="@color/black"
+        android:id="@+id/toolbarview"
+        />
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Đơn hàng trống"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="@color/red"
+
+        />
+</LinearLayout>

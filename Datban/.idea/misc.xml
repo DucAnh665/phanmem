@@ -18,12 +18,14 @@
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_ban6.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_chitietban.xml" value="0.264" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_chitietmonan.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_gioithieu2.xml" value="0.13451086956521738" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_listthucpham.xml" value="0.1265625" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_main2.xml" value="0.1265625" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_register.xml" value="0.23867753623188406" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/activity_thucdon.xml" value="0.23641304347826086" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/chitietgiohang.xml" value="0.13451086956521738" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/ctchitiethoadon.xml" value="0.1265625" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/ctloaiban.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/ctmonan.xml" value="0.19739583333333333" />
@@ -32,6 +34,8 @@
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/custom.xml" value="0.2" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/dong_banner.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/giohang.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/giohangtrong.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/loaiban2.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/Admin/Desktop/phanmem/Datban/app/src/main/res/layout/loaiban6.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/Dell/phanmem/Datban/app/src/main/res/drawable/bg_rounded.xml" value="0.19114583333333332" />

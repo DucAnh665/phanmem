@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:orientation="horizontal"
+>
+
+    <ImageView
+        android:layout_marginRight="15dp"
+        android:id="@+id/imggiohang"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+
+        <TextView
+
+            android:layout_toRightOf="@+id/imggiohang"
+            android:id="@+id/tvtenmongiohang"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="tên món"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/imggiohang"
+            android:layout_below="@+id/tvtenmongiohang"
+            android:id="@+id/tvmotagiohang"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="mô tả"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/tvtenmongiohang"
+            android:id="@+id/tvslgiohang"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="mô tả"/>
+
+
+
+    <ImageButton
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/delgiohang"
+        android:layout_toRightOf="@id/tvslgiohang"
+        android:src="@drawable/del"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        />
+
+    </RelativeLayout>
+
