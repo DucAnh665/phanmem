@@ -10,6 +10,8 @@ import android.widget.ListView;
 import com.example.myapplication.Adapter.Adapterban;
 import com.example.myapplication.DAO.BanDAO;
 import com.example.myapplication.DTO.Ban;
+import com.example.myapplication.databinding.ActivityBan4Binding;
+import com.example.myapplication.databinding.ActivityBan6Binding;
 
 import java.util.ArrayList;
 
@@ -18,17 +20,17 @@ public class ban4 extends AppCompatActivity {
 
     Adapterban adapterban;
     ArrayList<Ban> dulieuban = new ArrayList<>();
-    ListView lvban4;
+    private ActivityBan4Binding binding;
     BanDAO banDAO = new BanDAO();
     String url = "https://dsdiw.000webhostapp.com/loaiban.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ban4);
-        lvban4 = findViewById(R.id.lvban4);
+        binding = ActivityBan4Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         adapterban = new Adapterban(ban4.this,dulieuban,R.layout.custom);
-        lvban4.setAdapter(adapterban);
+        binding.lvban4.setAdapter(adapterban);
         banDAO.getdata(url,dulieuban,adapterban,ban4.this);
         load();
 
@@ -36,7 +38,7 @@ public class ban4 extends AppCompatActivity {
     }
     public void load()
     {
-        lvban4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.lvban4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 banDAO.loadmore(dulieuban,position,ban4.this);

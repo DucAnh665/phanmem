@@ -42,6 +42,7 @@ import com.example.myapplication.DTO.Menu;
 
 import com.example.myapplication.DTO.Monan;
 import com.example.myapplication.DTO.THUCDON;
+import com.example.myapplication.databinding.ActivityHomeBinding;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -54,24 +55,38 @@ public class home extends AppCompatActivity {
 
 
 
-    ViewFlipper quangcao;
-    ImageButton imgpre,imgnext;
+//    ViewFlipper quangcao;
+//    ImageButton imgpre,imgnext;
     Animation in,out;
-    TextView tenkhach,sdt;
-    ListView lvloaiban;
-    RecyclerView monan;
-    DrawerLayout drawerLayout;
-    ListView ban;
+//    TextView tenkhach,sdt;
+//    ListView lvloaiban;
+//    RecyclerView monan;
+//    DrawerLayout drawerLayout;
+//    ListView ban;
+    private ActivityHomeBinding binding;
+
     int id = 0 ;
    public static String ten = " ";
     String sdtkhach = " ";
+
+
+
     LoaiBanDTO loaiBanDTO;
     BanDAO banDAO;
     MonanDTO monanDTO;
+
+
+
     Adapterban daban;
+    Adaptermon adaptermon;
+
+
+
     ArrayList<Ban> dulieuban = new ArrayList<>();
      ArrayList<Monan> dulieumon = new ArrayList<>();
-    Adaptermon adaptermon;
+
+
+
     String urllb = "https://dsdiw.000webhostapp.com/getLoaiban.php";
     String urlban = "https://dsdiw.000webhostapp.com/getBan.php";
     String urlmon = "https://dsdiw.000webhostapp.com/getthucan.php";
@@ -79,44 +94,48 @@ public class home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+
+
         anhxa();
         Quangcao();
         loaiBanDTO = new LoaiBanDTO();
         banDAO = new BanDAO();
         monanDTO = new MonanDTO();
-        loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,lvloaiban);
+        loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,binding.lvloaiban);
         daban = new Adapterban(home.this,dulieuban,R.layout.custom);
         banDAO.getdata(urlban,dulieuban,daban,home.this);
-        ban.setAdapter(daban);
+       binding.ban.setAdapter(daban);
         adaptermon = new Adaptermon(dulieumon,home.this);
-        monan.setHasFixedSize(true);
+       binding.monan.setHasFixedSize(true);
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL,false);
-        monan.setLayoutManager(layoutManager1);
-        monan.setAdapter(adaptermon);
+        binding.monan.setLayoutManager(layoutManager1);
+        binding.monan.setAdapter(adaptermon);
         monanDTO.getdulieu(urlmon,adaptermon,dulieumon,home.this);
         nhandulieu();
 
 
-        imgpre.setOnClickListener(new View.OnClickListener() {
+       binding.imgpre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(quangcao.isAutoStart()){
-                    quangcao.stopFlipping();
-                    quangcao.showPrevious();
-                    quangcao.startFlipping();
-                    quangcao.setAutoStart(true);
+                if(binding.quangcao.isAutoStart()){
+                    binding.quangcao.stopFlipping();
+                    binding.quangcao.showPrevious();
+                    binding.quangcao.startFlipping();
+                    binding.quangcao.setAutoStart(true);
                 }
             }
         });
-        imgnext.setOnClickListener(new View.OnClickListener() {
+       binding.imgnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(quangcao.isAutoStart()){
-                    quangcao.stopFlipping();
-                    quangcao.showNext();
-                    quangcao.startFlipping();
-                    quangcao.setAutoStart(true);
+                if(binding.quangcao.isAutoStart()){
+                   binding.quangcao.stopFlipping();
+                    binding.quangcao.showNext();
+                    binding.quangcao.startFlipping();
+                    binding.quangcao.setAutoStart(true);
                 }
             }
         });
@@ -124,10 +143,10 @@ public class home extends AppCompatActivity {
     private void Quangcao() {
         in = AnimationUtils.loadAnimation(this,R.anim.fade_in);
         out = AnimationUtils.loadAnimation(this,R.anim.fade_out);
-        quangcao.setInAnimation(in);
-        quangcao.setInAnimation(out);
-        quangcao.setFlipInterval(5000);
-        quangcao.setAutoStart(true);
+       binding.quangcao.setInAnimation(in);
+       binding.quangcao.setInAnimation(out);
+       binding.quangcao.setFlipInterval(5000);
+       binding.quangcao.setAutoStart(true);
 
     }
 
@@ -137,32 +156,25 @@ public class home extends AppCompatActivity {
         id = khachhang.getId();
         ten = khachhang.getTenkhach();
         sdtkhach = khachhang.getSdt();
-        tenkhach.setText(ten);
-        sdt.setText(sdtkhach);
+        binding.tenkhach.setText(ten);
+        binding.sdt.setText(sdtkhach);
 
     }
 
     public  void anhxa()
     {
-        quangcao = findViewById(R.id.quangcao);
-        imgnext = findViewById(R.id.imgnext);
-        imgpre = findViewById(R.id.imgpre);
-        tenkhach = findViewById(R.id.tenkhach);
-        sdt = findViewById(R.id.sdt);
-        lvloaiban = findViewById(R.id.lvloaiban);
-        ban = (ListView) findViewById(R.id.ban);
-        monan = (RecyclerView) findViewById(R.id.monan);
-        ban.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+       binding.ban.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 banDAO.loadmore(dulieuban,position,home.this);
             }
         });
-        drawerLayout = findViewById(R.id.drea);
-        lvloaiban.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        binding.lvloaiban.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                loaiBanDTO.phanloai(home.this,position,drawerLayout);
+                loaiBanDTO.phanloai(home.this,position,binding.drea);
             }
         });
 

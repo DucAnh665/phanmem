@@ -9,40 +9,43 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myapplication.DAO.KhachhangDAO;
+import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.databinding.ActivityRegisterBinding;
 
 public class Register extends AppCompatActivity {
 
-    EditText ten,tk,mk,sdt;
-    Button dangki;
+
     String urldangky = "https://dsdiw.000webhostapp.com/dangky.php";
+    private ActivityRegisterBinding binding;
     KhachhangDAO khachhangDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        anhxa();
-        dangki.setOnClickListener(new View.OnClickListener() {
+        binding = ActivityRegisterBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        khachhangDAO = new KhachhangDAO();
+       binding.Dangky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 click();
             }
         });
     }
-    public void anhxa()
-    {
-        ten = findViewById(R.id.txttenkhach);
-        tk = findViewById(R.id.txtusername);
-        mk = findViewById(R.id.txtpass);
-        sdt = findViewById(R.id.txtsdt);
-        dangki = findViewById(R.id.Dangky);
-        khachhangDAO = new KhachhangDAO();
-    }
+//    public void anhxa()
+//    {
+//        ten = findViewById(R.id.txttenkhach);
+//        tk = findViewById(R.id.txtusername);
+//        mk = findViewById(R.id.txtpass);
+//        sdt = findViewById(R.id.txtsdt);
+//        dangki = findViewById(R.id.Dangky);
+//
+//    }
     public void click()
     {
-        String name = ten.getText().toString();
-        String user = tk.getText().toString();
-        String pass = mk.getText().toString();
-        String phone = sdt.getText().toString();
+        String name = binding.txttenkhach.getText().toString();
+        String user = binding.txtusername.getText().toString();
+        String pass = binding.txtpass.getText().toString();
+        String phone = binding.txtsdt.getText().toString();
         if (name.equals("")&&user.equals("")&&pass.equals("")&&phone.equals(""))
         {
             Toast.makeText(Register.this,"VUI LÒNG NHẬP ĐỦ THÔNG TIN",Toast.LENGTH_LONG).show();

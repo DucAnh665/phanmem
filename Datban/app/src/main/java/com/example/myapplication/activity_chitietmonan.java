@@ -19,16 +19,21 @@ import com.example.myapplication.DAO.MonanDTO;
 import com.example.myapplication.DTO.Khachhang;
 import com.example.myapplication.DTO.Monan;
 import com.example.myapplication.DTO.THUCDON;
+import com.example.myapplication.databinding.ActivityBan6Binding;
+import com.example.myapplication.databinding.ActivityChitietmonanBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class activity_chitietmonan extends AppCompatActivity {
 
-    TextView tenmonan,gia,chatluong;
-    ImageView anhmon;
-    Spinner soluong;
-    ImageButton datmon;
+//    TextView tenmonan,gia,chatluong;
+//    ImageView anhmon;
+//    Spinner soluong;
+//    ImageButton datmon;
+
+    private ActivityChitietmonanBinding binding;
+
     String tenmon = " ";
     int id = 0;
     int chatluong1 = 0;
@@ -37,27 +42,28 @@ public class activity_chitietmonan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chitietmonan);
+        binding = ActivityChitietmonanBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         anhxa();
         nhandulieu();
         monanDTO = new MonanDTO();
-        monanDTO.ex(activity_chitietmonan.this,soluong);
+        monanDTO.ex(activity_chitietmonan.this,binding.spiner);
 
     }
     public void anhxa()
     {
-        tenmonan = findViewById(R.id.tenmon1);
-        gia = findViewById(R.id.giatien);
-        chatluong = findViewById(R.id.chatluong);
-        soluong = findViewById(R.id.spiner);
-        datmon = findViewById(R.id.buttondatmon);
-        anhmon = findViewById(R.id.imagechitietmon);
-        datmon.setOnClickListener(new View.OnClickListener() {
+//        tenmonan = findViewById(R.id.tenmon1);
+//        gia = findViewById(R.id.giatien);
+//        chatluong = findViewById(R.id.chatluong);
+//        soluong = findViewById(R.id.spiner);
+//        datmon = findViewById(R.id.buttondatmon);
+//        anhmon = findViewById(R.id.imagechitietmon);
+        binding.buttondatmon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (MainActivity.dulieuthucdon.size()>0)
                 {
-                    int s1 = Integer.parseInt(soluong.getSelectedItem().toString());
+                    int s1 = Integer.parseInt(binding.spiner.getSelectedItem().toString());
                     boolean ex = false;
                     for (int i=0;i<MainActivity.dulieuthucdon.size();i++)
                     {
@@ -74,14 +80,14 @@ public class activity_chitietmonan extends AppCompatActivity {
                     }
                     if (ex==false)
                     {
-                        int soluongnew = Integer.parseInt(soluong.getSelectedItem().toString());
+                        int soluongnew = Integer.parseInt(binding.spiner.getSelectedItem().toString());
                         long gianew = soluongnew*chatluong1;
                         MainActivity.dulieuthucdon.add(new THUCDON(id,tenmon,hinhanh,gianew,soluongnew,Chitietban.soban1,home.ten));
                     }
                 }
                 else
                 {
-                    int soluongnew = Integer.parseInt(soluong.getSelectedItem().toString());
+                    int soluongnew = Integer.parseInt(binding.spiner.getSelectedItem().toString());
                     long gianew = soluongnew*chatluong1;
                     MainActivity.dulieuthucdon.add(new THUCDON(id,tenmon,hinhanh,gianew,soluongnew,Chitietban.soban1,home.ten));
                 }
@@ -99,18 +105,18 @@ public class activity_chitietmonan extends AppCompatActivity {
         Monan monan = (Monan)getIntent().getSerializableExtra("thongtinmon") ;
         id = monan.getID();
         hinhanh = monan.getHinhanh();
-        Picasso.get().load(hinhanh).into(anhmon);
+        Picasso.get().load(hinhanh).into(binding.imagechitietmon);
         chatluong1 = monan.getGia();
         tenmon = monan.getTenmon();
-        tenmonan.setText(tenmon);
-        gia.setText(String.valueOf(chatluong1));
+        binding.tenmon1.setText(tenmon);
+        binding.giatien.setText(String.valueOf(chatluong1));
         if (chatluong1>=1000000)
         {
-            chatluong.setText("Loại 1");
+            binding.chatluong.setText("Loại 1");
         }
         else
         {
-            chatluong.setText("Loại 2");
+            binding.chatluong.setText("Loại 2");
         }
 
 

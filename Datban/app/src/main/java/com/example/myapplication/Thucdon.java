@@ -15,15 +15,18 @@ import android.widget.TextView;
 import com.example.myapplication.Adapter.AdapterThucdon;
 import com.example.myapplication.DAO.ThucdonDAO;
 import com.example.myapplication.DTO.THUCDON;
+import com.example.myapplication.databinding.ActivityThucdonBinding;
 
 import java.util.ArrayList;
 
 public class Thucdon extends AppCompatActivity {
 
-    ListView listThucdon;
+//    ListView listThucdon;
     AdapterThucdon dathucdon;
-    TextView thucdon;
-           public static TextView Giatri;
+//    TextView thucdon;
+
+    private ActivityThucdonBinding binding;
+    public static TextView Giatri;
     Button datmon,trangchu;
    public static ThucdonDAO thucdonDAO = new ThucdonDAO();
    String  url = "https://dsdiw.000webhostapp.com/thongtin.php";
@@ -31,26 +34,26 @@ public class Thucdon extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thucdon);
+        binding = ActivityThucdonBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         anhxa();
         dathucdon = new AdapterThucdon(MainActivity.dulieuthucdon,Thucdon.this,R.layout.ctthucdon);
-        listThucdon.setAdapter(dathucdon);
+        binding.lvthucdon.setAdapter(dathucdon);
 
-        thucdonDAO.checkdata(dathucdon,thucdon,listThucdon);
+        thucdonDAO.checkdata(dathucdon,binding.textthucdon,binding.lvthucdon);
         nhangia();
 
     }
     public void anhxa()
     {
-        listThucdon = findViewById(R.id.lvthucdon);
-        thucdon = findViewById(R.id.textthucdon);
+
         Giatri = findViewById(R.id.giatri);
         datmon = findViewById(R.id.btndatmon);
         trangchu = findViewById(R.id.btnTrangchu);
-        listThucdon.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        binding.lvthucdon.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                thucdonDAO.delete(Thucdon.this,thucdon,position,dathucdon,Giatri);
+                thucdonDAO.delete(Thucdon.this,binding.textthucdon,position,dathucdon,Giatri);
                 return true;
             }
         });

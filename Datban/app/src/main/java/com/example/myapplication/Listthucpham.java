@@ -10,12 +10,14 @@ import android.widget.ListView;
 import com.example.myapplication.Adapter.Adapterthucpham;
 import com.example.myapplication.DAO.MonanDTO;
 import com.example.myapplication.DTO.Monan;
+import com.example.myapplication.databinding.ActivityListthucphamBinding;
 
 import java.util.ArrayList;
 
 public class Listthucpham extends AppCompatActivity {
 
-    ListView lvthucpham;
+    ActivityListthucphamBinding binding;
+  //  ListView lvthucpham;
     ArrayList<Monan> dulieumonan = new ArrayList<>();
     Adapterthucpham adapterthucpham;
     MonanDTO monanDTO;
@@ -24,13 +26,16 @@ public class Listthucpham extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listthucpham);
+      //  setContentView(R.layout.activity_listthucpham);
+        binding = ActivityListthucphamBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         monanDTO = new MonanDTO();
-        lvthucpham = findViewById(R.id.listviewthucpham);
+      //  lvthucpham = findViewById(R.id.listviewthucpham);
         adapterthucpham = new Adapterthucpham(dulieumonan,Listthucpham.this,R.layout.ctthucpham);
         monanDTO.getdulieuthucpham(urlmon,adapterthucpham,dulieumonan,Listthucpham.this);
-        lvthucpham.setAdapter(adapterthucpham);
-        lvthucpham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.listviewthucpham.setAdapter(adapterthucpham);
+        binding.listviewthucpham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 monanDTO.chuyenman(Listthucpham.this,dulieumonan,position);
