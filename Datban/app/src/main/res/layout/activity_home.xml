@@ -107,7 +107,8 @@
                      <ListView
                          android:id="@+id/ban"
                          android:layout_width="match_parent"
-                         android:layout_height="match_parent"/>
+                         android:layout_height="match_parent"
+                         android:dividerHeight="10dp"/>
                  </LinearLayout>
 
              </LinearLayout>
@@ -122,14 +123,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
                 <TextView
                     android:id="@+id/tenkhach"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tenkhach"
                     android:textSize="30dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="15dp"/>
 
                 <TextView
                     android:id="@+id/sdt"
@@ -137,22 +141,22 @@
                     android:layout_height="wrap_content"
                     android:text="Số điện thoai"
                     android:textSize="20dp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="15dp"/>
 
-                <TextView
-                    android:id="@+id/id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="id"
-                    android:textSize="10dp"
-                    android:textStyle="italic" />
+
             </LinearLayout>
 
             <ListView
                 android:id="@+id/lvloaiban"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="150dp" />
+                android:layout_marginTop="150dp"
+
+                android:dividerHeight="10dp"
+                />
 
 
         </com.google.android.material.navigation.NavigationView>

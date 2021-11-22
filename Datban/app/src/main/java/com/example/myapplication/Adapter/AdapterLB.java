@@ -66,7 +66,7 @@ public class AdapterLB extends BaseAdapter {
             viewhodel = (Viewhodel) view.getTag();
         }
         Menu list = listmenu.get(position);
-        Picasso.get().load(list.getHinhanh()).placeholder(R.drawable.background).error(R.drawable.googleg_standard_color_18).into(viewhodel.anhlb);
+        Picasso.get().load(list.getHinhanh()).placeholder(R.drawable.background).error(R.drawable.restaurent).into(viewhodel.anhlb);
         viewhodel.Tenlb.setText(list.getTenloaiban());
         return view;
     }
