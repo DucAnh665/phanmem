@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="title_activity_gioithieu">gioithieu</string>
+    <string name="map_api_key">AIzaSyAXvlGkaGGZncSB28g1J_fwPtoArwCMb7M</string>
 </resources>
