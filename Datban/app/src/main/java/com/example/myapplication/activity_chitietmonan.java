@@ -52,12 +52,7 @@ public class activity_chitietmonan extends AppCompatActivity {
     }
     public void anhxa()
     {
-//        tenmonan = findViewById(R.id.tenmon1);
-//        gia = findViewById(R.id.giatien);
-//        chatluong = findViewById(R.id.chatluong);
-//        soluong = findViewById(R.id.spiner);
-//        datmon = findViewById(R.id.buttondatmon);
-//        anhmon = findViewById(R.id.imagechitietmon);
+
         binding.buttondatmon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
