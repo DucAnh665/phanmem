@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myapplication.DAO.KhachhangDAO;
+import com.example.myapplication.DTO.Khachhang;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.databinding.ActivityRegisterBinding;
 
@@ -42,10 +43,12 @@ public class Register extends AppCompatActivity {
 //    }
     public void click()
     {
+        int id = 0;
         String name = binding.txttenkhach.getText().toString();
         String user = binding.txtusername.getText().toString();
         String pass = binding.txtpass.getText().toString();
         String phone = binding.txtsdt.getText().toString();
+
         if (name.equals("")&&user.equals("")&&pass.equals("")&&phone.equals(""))
         {
             Toast.makeText(Register.this,"VUI LÒNG NHẬP ĐỦ THÔNG TIN",Toast.LENGTH_LONG).show();
@@ -53,7 +56,7 @@ public class Register extends AppCompatActivity {
         }
         else
         {
-            khachhangDAO.dangky(name,user,pass,phone,urldangky,Register.this);
+            khachhangDAO.dangky(id,name,user,pass,phone,urldangky,Register.this);
         }
     }
 }

@@ -99,15 +99,20 @@ public class home extends AppCompatActivity {
 
 
 
-        anhxa();
+       chucnang();
         Quangcao();
         loaiBanDTO = new LoaiBanDTO();
         banDAO = new BanDAO();
         monanDTO = new MonanDTO();
         loaiBanDTO.getdata(urllb,home.this,R.layout.ctloaiban,binding.lvloaiban);
         daban = new Adapterban(home.this,dulieuban,R.layout.custom);
+
+
         banDAO.getdata(urlban,dulieuban,daban,home.this);
        binding.ban.setAdapter(daban);
+
+
+
         adaptermon = new Adaptermon(dulieumon,home.this);
        binding.monan.setHasFixedSize(true);
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL,false);
@@ -161,7 +166,7 @@ public class home extends AppCompatActivity {
 
     }
 
-    public  void anhxa()
+    public  void chucnang()
     {
 
        binding.ban.setOnItemClickListener(new AdapterView.OnItemClickListener() {

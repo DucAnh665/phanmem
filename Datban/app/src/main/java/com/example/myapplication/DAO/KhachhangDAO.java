@@ -43,14 +43,15 @@ public class KhachhangDAO {
               {
                   try
                   {
+                      dulieukhach.clear();
                       JSONArray jsonArray = new JSONArray(response);
                       for (int i=0;i<jsonArray.length();i++)
                       {
-                          JSONObject object = jsonArray.getJSONObject(i);
+                         JSONObject object = jsonArray.getJSONObject(i);
                           id = object.getInt("ID");
                           tenkhach = object.getString("Tenkhach");
                           sdt = object.getString("Sdt");
-                          dulieukhach.add(new Khachhang(id,tenkhach,sdt));
+                          dulieukhach.add(new Khachhang(id,tenkhach,taikhoan,matkhau,sdt));
                           Intent intent = new Intent(context, home.class);
                           intent.putExtra("thongtin",  dulieukhach.get(i));
                           context.startActivity(intent);
@@ -87,16 +88,19 @@ public class KhachhangDAO {
     }
 
 
-    public int dangky(String tenkhach,String taikhoan, String matkhau,String sdt, String url, Context context)
+    public int dangky(int id,String name,String tk,String mk,String sdt,String url, Context context)
     {
+
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.equals("thanhcong"))
                 {
+                    dulieukhach.add(new Khachhang(id,name,tk,mk,sdt));
                     Toast.makeText(context,"Đăng kí thành công",Toast.LENGTH_LONG).show();
                     context.startActivity(new Intent(context, MainActivity.class));
+
 
                 }
                 else if(response.equals("thatbai"))
@@ -115,9 +119,9 @@ public class KhachhangDAO {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> param = new HashMap<>();
-                param.put("Tenkhach",tenkhach);
-                param.put("User",taikhoan);
-                param.put("Pass",matkhau);
+                param.put("Tenkhach",name);
+                param.put("User",tk);
+                param.put("Pass",mk);
                 param.put("Sdt",sdt);
                 return param;
             }
